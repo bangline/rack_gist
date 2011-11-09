@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency "rack"
+  s.add_runtime_dependency "hpricot"
   s.add_development_dependency "bundler"
   s.add_development_dependency "rspec"
+  s.add_development_dependency "rack-test"
 end
