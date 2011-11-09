@@ -52,5 +52,15 @@ describe Rack::Gist do
     end
   end
 
+  describe "a page with a gist with no https protocol in the body" do
+    before do
+      self.class.app = generate_app(body: '<p>Here is some text</p><p>gist.github.com/12345</p><p>Some more text</p>')
+    end
+
+    it "should parse out plain text gist links to js stylee" do
+      get "/"
+      body.should eql '<p>Here is some text</p><p><script src="https://gist.github.com/12345.js"></script></p><p>Some more text</p>'
+    end
+  end
   
 end

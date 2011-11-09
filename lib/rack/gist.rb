@@ -12,6 +12,7 @@ module Rack
         parsed_response = ""
         response.each do |r|
           parsed_response = r.gsub(/(https:\/\/|)gist\.github\.com\/(\d+)/) do |gist|
+            gist = "https://" + gist unless gist.start_with? "https://"
             "<script src=\"#{gist}.js\"></script>"
           end
         end
