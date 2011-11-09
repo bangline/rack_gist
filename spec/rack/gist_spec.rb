@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Gist do
+describe Rack::Gist do
   pending "So whassup"
 end
